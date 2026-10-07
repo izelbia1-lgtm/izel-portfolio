@@ -4,7 +4,9 @@ A personal portfolio for software developer applications and small-business webs
 
 ## Design
 
-Concept 1: Feminine Tech / Premium. A name-led technical hero, dark asymmetric project showcase, compact technology cards and a clear experience timeline. Cream, charcoal and plum carry the visual identity; the portrait appears only as a small About detail.
+Concept 3: Creative Studio. A light editorial portfolio with a typography-led hero, warm ivory and dusty rose surfaces, staggered website previews, a dedicated small-business services section and a structured skills ledger. No portrait or technical dashboard appears.
+
+The working design is on `concept-3-creative-studio`, created from `main`. Concept 1 remains on `main` and Concept 2 remains on `concept-2-dark-tech`. Concept 3 is approved and maintained on its own branch; it is not merged into either earlier concept.
 
 ## Features
 
@@ -57,9 +59,9 @@ src/
   styles.css               Tailwind import, design tokens and responsive styles
   components/
     Header.tsx             Desktop and mobile navigation
-    Hero.tsx               Layered project preview and component excerpt
-    ProjectCard.tsx        Reusable project showcase
-    TrainingProject.tsx    Training application technology overview
+    Hero.tsx               Editorial typography composition
+    ProjectCard.tsx        Staggered editorial project showcase
+    TrainingProject.tsx    Training project editorial feature
     Icon.tsx               Local SVG icons
     CaseStudy.tsx          Native modal dialog
     Contact.tsx            Email draft form

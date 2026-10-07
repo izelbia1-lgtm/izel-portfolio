@@ -7,24 +7,28 @@ import { CaseStudy } from "./components/CaseStudy";
 import { Contact } from "./components/Contact";
 import { Icon } from "./components/Icon";
 import { TrainingProject } from "./components/TrainingProject";
-
-const skillIcons = ["code", "layers", "database", "branch"] as const;
 const services = [
   [
-    "Business websites & redesigns",
-    "A clear structure, considered design, and space to tell your story.",
+    "Business websites",
+    "A considered home for your business, with a clear structure and room for your story.",
+  ],
+  [
+    "Website redesigns",
+    "A fresh design that helps people find what matters and take the next step.",
   ],
   [
     "Responsive development",
-    "Layouts that feel comfortable on phones, tablets and desktops.",
+    "Interfaces that feel comfortable on phones, tablets and desktops.",
   ],
   [
-    "Enquiries & connections",
-    "Contact and quote functionality, with WhatsApp integration when you need it.",
+    "WhatsApp & enquiry integration",
+    "Direct connections through contact forms, quote functionality and WhatsApp.",
   ],
-  ["Launch essentials", "Basic SEO, accessible foundations and deployment."],
+  [
+    "Basic SEO & launch setup",
+    "Search-friendly foundations, deployment and the details that prepare a site for launch.",
+  ],
 ];
-
 export default function App() {
   const [selected, setSelected] = useState<Project | null>(null);
   return (
@@ -34,22 +38,21 @@ export default function App() {
       </a>
       <Header />
       <main id="main" tabIndex={-1}>
-        <Hero onOpen={setSelected} />
+        <Hero />
         <section id="work" className="work section-pad">
           <div className="container">
             <div className="section-heading">
               <div>
-                <span className="eyebrow">01 / Selected work</span>
+                <span className="eyebrow">01 / A selection of my work</span>
                 <h2>
-                  Real projects.
+                  Different businesses.
                   <br />
-                  Real <em>solutions.</em>
+                  <em>Considered solutions.</em>
                 </h2>
               </div>
               <p>
-                Client websites and independent concepts.
-                <br />A look at the interfaces, features and code
-                <br className="desktop-break" /> that bring them together.
+                Real client work, independent concepts and full-stack training.
+                A closer look at what I build.
               </p>
             </div>
             <div className="project-grid">
@@ -65,303 +68,250 @@ export default function App() {
             <TrainingProject />
           </div>
         </section>
-        <section id="skills" className="skills section-pad">
-          <div className="container">
-            <div className="section-heading">
-              <div>
-                <span className="eyebrow">02 / Technical toolkit</span>
-                <h2>Tools I work with.</h2>
-              </div>
-              <p>
-                Technologies used across my projects and training.
-                <br />
-                From the interface to the systems behind it.
-              </p>
-            </div>
-            <div className="skills-grid">
-              {skills.map((group, index) => (
-                <article className="skill-card" key={group.name}>
-                  <div className="skill-top">
-                    <span className="skill-icon">
-                      <Icon name={skillIcons[index]} size={23} />
-                    </span>
-                    <span className="mono">0{index + 1}</span>
-                  </div>
-                  <h3>
-                    {group.name === "Tools & training"
-                      ? "Tools & deployment"
-                      : group.name}
-                  </h3>
-                  <ul className="tech-chips">
-                    {group.items.map((skill) => (
-                      <li key={skill}>{skill}</li>
-                    ))}
-                  </ul>
-                  {group.training && (
-                    <div className="training-note">
-                      <span>IBM programme exposure</span>
-                      <ul className="tech-chips">
-                        {group.training.map((skill) => (
-                          <li key={skill}>{skill}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                </article>
-              ))}
-            </div>
-            <div className="stack-note">
-              <Icon name="code" size={18} />
-              <span>
-                Thoughtful interfaces. Connected systems. Practical
-                problem-solving.
-              </span>
-            </div>
-          </div>
-        </section>
-        <section id="experience" className="experience section-pad container">
-          <div className="experience-heading">
-            <span className="eyebrow">03 / Experience & learning</span>
-            <h2>
-              A foundation
-              <br />
-              to build on.
-            </h2>
-            <p>
-              Professional work, independent development and continued learning.
-            </p>
-            <a className="text-link" href="./Izel_Bianchina_CV.pdf" download>
-              <Icon name="download" size={16} />
-              Download my CV
-            </a>
-          </div>
-          <div className="timeline">
-            {experience.map((item, index) => (
-              <article
-                key={item.title}
-                className={`timeline-item experience-${index}`}
-              >
-                <div className="timeline-meta">
-                  <span className="experience-type">{item.kind}</span>
-                  <span>{item.dates}</span>
-                </div>
-                <h3>{item.title}</h3>
-                <p className="organisation">{item.organisation}</p>
-                <p>{item.description}</p>
-              </article>
-            ))}
-            <article className="timeline-item education">
-              <div className="timeline-meta">
-                <span className="experience-type">Education</span>
-                <span>Completed 2026</span>
-              </div>
-              <h3>
-                Full Stack Software Developer
-                <br />
-                Professional Certificate
-              </h3>
-              <p className="organisation">IBM</p>
-              <p>
-                A completed 15-course programme covering full-stack development
-                and cloud technologies.
-              </p>
-            </article>
-          </div>
-        </section>
-        <section id="about" className="about section-pad">
-          <div className="container about-grid">
-            <div className="about-copy">
-              <span className="eyebrow">04 / The person behind the code</span>
-              <h2>
-                Curious. Practical.
-                <br />
-                Always building.
-              </h2>
-              <p>
-                I’m Izel, a software and web developer based in Johannesburg. I
-                work with React, Node.js and Django, building the interfaces
-                people use and the systems behind them.
-              </p>
-              <p>
-                My background includes freelance technical support and remote
-                operations. My freelance work included debugging and
-                troubleshooting; at PBMS, I coordinated schedules,
-                communications and task tracking.
-              </p>
-              <p>
-                I’ve completed IBM’s Full Stack Software Developer Professional
-                Certificate, and I’m looking for a junior developer role where I
-                can contribute and keep learning. I also build websites for
-                small businesses.
-              </p>
-              <a className="text-link" href="#contact">
-                Let’s start a conversation <Icon name="mail" size={16} />
-              </a>
-            </div>
-            <div className="about-profile">
-              <div className="profile-intro">
-                <img
-                  src="./images/izel.webp"
-                  alt="Izel Bianchina"
-                  width="259"
-                  height="259"
-                  loading="lazy"
-                />
-                <div>
-                  <span className="mono">HELLO, I’M</span>
-                  <p>
-                    Izel Bianchina<span>Software & web developer</span>
-                  </p>
-                </div>
-              </div>
-              <div className="profile-code">
-                <div className="code-tab">
-                  <Icon name="code" size={15} />
-                  about.ts
-                </div>
-                <pre>
-                  <code>
-                    <span className="syntax-key">const</span> developer = {"{"}
-                    {"\n"} name:{" "}
-                    <span className="syntax-value">"Izel Bianchina"</span>,
-                    {"\n"} basedIn:{" "}
-                    <span className="syntax-value">"Johannesburg"</span>,{"\n"}{" "}
-                    builds: [{"\n"}{" "}
-                    <span className="syntax-value">"Websites"</span>,{"\n"}{" "}
-                    <span className="syntax-value">
-                      "Full-stack applications"
-                    </span>
-                    {"\n"} ]{"\n"}
-                    {"}"};
-                  </code>
-                </pre>
-                <div className="profile-code-footer">
-                  <Icon name="branch" size={14} />
-                  <span>A little about the developer.</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
         <section id="services" className="services section-pad">
           <div className="container services-grid">
-            <div>
-              <span className="eyebrow">05 / For small businesses</span>
-              <h2>Need a website that actually works for your business?</h2>
+            <div className="services-intro">
+              <span className="eyebrow">02 / For your business</span>
+              <h2>
+                Have a business?
+                <br />
+                Let’s give it a<br />
+                <em>better home</em>
+                <br />
+                online.
+              </h2>
               <p>
-                A clear online home for what you do, built around the people you
-                want to reach.
+                Simple to use. Thoughtfully designed. Built around the people
+                you want to reach.
               </p>
-              <a className="button light" href="#contact">
-                Let’s work together <Icon name="code" size={17} />
+              <a className="button primary" href="#contact">
+                Let’s work together <span aria-hidden="true">↗</span>
               </a>
-              <div className="service-signature" aria-hidden="true">
-                &lt;your-business /&gt;
-              </div>
+              <span className="service-note">
+                A personal approach, from idea to implementation.
+              </span>
             </div>
             <div className="service-list">
               {services.map(([title, copy], index) => (
                 <article key={title}>
                   <span className="service-number">0{index + 1}</span>
-                  <h3>{title}</h3>
-                  <p>{copy}</p>
+                  <div>
+                    <h3>{title}</h3>
+                    <p>{copy}</p>
+                  </div>
+                  <span className="service-arrow" aria-hidden="true">
+                    ↗
+                  </span>
                 </article>
               ))}
             </div>
           </div>
         </section>
-        <section id="github" className="github section-pad container">
-          <div className="section-heading">
-            <div>
-              <span className="eyebrow">06 / Beyond the browser</span>
-              <h2>Explore the code.</h2>
+        <section id="about" className="about section-pad">
+          <div className="container">
+            <div className="about-top">
+              <span className="eyebrow">03 / The person behind the work</span>
+              <span className="about-monogram" aria-hidden="true">
+                ib.
+              </span>
             </div>
+            <div className="about-grid">
+              <div>
+                <h2>
+                  A curious mind.
+                  <br />A practical approach.
+                  <br />
+                  <em>A little perspective.</em>
+                </h2>
+                <p className="personal-statement">
+                  Good websites should make things easier.
+                  <br />
+                  For the people using them.
+                  <br />
+                  And the people behind them.
+                </p>
+              </div>
+              <div className="about-copy">
+                <h3>I’m Izel Bianchina.</h3>
+                <p>
+                  A software and web developer based in Johannesburg, South
+                  Africa. I work with React, JavaScript, TypeScript, Node.js and
+                  Django to build small-business websites and full-stack
+                  applications.
+                </p>
+                <p>
+                  My background includes freelance technical support and remote
+                  operations. My freelance work included debugging and
+                  troubleshooting; at PBMS, I coordinated schedules,
+                  communications and task tracking.
+                </p>
+                <p>
+                  I’ve completed IBM’s Full Stack Software Developer
+                  Professional Certificate. I’m looking for a junior developer
+                  role where I can contribute and keep learning, alongside
+                  selected freelance website projects.
+                </p>
+                <a
+                  className="text-link"
+                  href="./Izel_Bianchina_CV.pdf"
+                  download
+                >
+                  Download my CV <Icon name="download" size={16} />
+                </a>
+              </div>
+            </div>
+            <div className="personal-facts">
+              <div>
+                <span>BASED IN</span>
+                <p>Johannesburg, South Africa</p>
+              </div>
+              <div>
+                <span>LOOKING AHEAD</span>
+                <p>Junior developer opportunities</p>
+              </div>
+              <div>
+                <span>LET’S COLLABORATE</span>
+                <p>Selected freelance website projects</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="skills" className="skills section-pad">
+          <div className="container">
+            <div className="section-heading">
+              <div>
+                <span className="eyebrow">04 / The tools behind the work</span>
+                <h2>
+                  Creative thinking.
+                  <br />
+                  <em>Technical foundations.</em>
+                </h2>
+              </div>
+              <p>
+                Technologies I use across my projects and training, from the
+                first component to the systems behind it.
+              </p>
+            </div>
+            <div className="skill-ledger">
+              {skills.map((group, index) => (
+                <article className="skill-row" key={group.name}>
+                  <span className="skill-number">0{index + 1}</span>
+                  <h3>
+                    {group.name === "Tools & training"
+                      ? "Tools & deployment"
+                      : group.name}
+                  </h3>
+                  <div>
+                    <ul className="skill-list">
+                      {group.items.map((skill) => (
+                        <li key={skill}>{skill}</li>
+                      ))}
+                    </ul>
+                    {group.training && (
+                      <div className="training-note">
+                        <span>IBM programme exposure</span>
+                        <ul className="skill-list">
+                          {group.training.map((skill) => (
+                            <li key={skill}>{skill}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section id="experience" className="experience section-pad">
+          <div className="container">
+            <div className="experience-heading">
+              <span className="eyebrow">05 / Experience & education</span>
+              <h2>
+                Learning by doing.
+                <br />
+                <em>Building on experience.</em>
+              </h2>
+              <a className="text-link" href="./Izel_Bianchina_CV.pdf" download>
+                The full picture <Icon name="download" size={16} />
+              </a>
+            </div>
+            <div className="experience-list">
+              {experience.map((item) => (
+                <article className="experience-entry" key={item.title}>
+                  <div className="experience-meta">
+                    <span className="experience-type">{item.kind}</span>
+                    <span className="experience-dates">{item.dates}</span>
+                  </div>
+                  <div className="experience-details">
+                    <h3>{item.title}</h3>
+                    <p className="organisation">{item.organisation}</p>
+                    <p>{item.description}</p>
+                  </div>
+                </article>
+              ))}
+              <article className="experience-entry education">
+                <div className="experience-meta">
+                  <span className="experience-type">Education</span>
+                  <span className="experience-dates">Completed 2026</span>
+                </div>
+                <div className="experience-details">
+                  <h3>
+                    Full Stack Software Developer Professional Certificate
+                  </h3>
+                  <p className="organisation">IBM</p>
+                  <p>
+                    A completed 15-course programme covering full-stack
+                    development and cloud technologies.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+        <section id="github" className="github">
+          <div className="container github-inner">
+            <div>
+              <span className="eyebrow">Behind every finished interface</span>
+              <h2>
+                There’s a little more
+                <br />
+                <em>to explore.</em>
+              </h2>
+            </div>
+            <p>
+              Explore the components, application logic and implementation in my
+              GitHub repositories.
+            </p>
             <a
-              className="button secondary"
+              className="github-link"
               href={profile.github}
               target="_blank"
               rel="noreferrer"
             >
-              <Icon name="github" size={18} />
-              View my GitHub profile
-            </a>
-          </div>
-          <div className="repo-panel">
-            <div className="repo-panel-head">
-              <span>
-                <Icon name="github" size={18} />
-                izelbia1-lgtm <span className="repo-divider">/</span> selected
-                repositories
-              </span>
-              <Icon name="branch" size={17} />
-            </div>
-            <a
-              className="repository-card capstone-repo"
-              href={`${profile.github}/fullstack-saas-app`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span className="repo-symbol">
-                <Icon name="code" size={25} />
-              </span>
-              <div>
-                <span className="eyebrow">Training / capstone project</span>
-                <h3>fullstack-saas-app</h3>
-                <p>
-                  A training application with a React frontend, Django
-                  authentication and API views, and an Express / MongoDB
-                  service. Explore the repository for the implementation.
-                </p>
-                <div className="repo-tech">
-                  React · Python · Django · Express · MongoDB
-                </div>
-              </div>
+              <Icon name="github" size={25} />
+              <span>izelbia1-lgtm</span>
               <Icon name="external" size={18} />
             </a>
-            <div className="repository-grid">
-              {projects.map((project) => (
-                <a
-                  className="repository-card"
-                  key={project.id}
-                  href={project.repository}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <div>
-                    <Icon name="branch" size={19} />
-                    <h3>
-                      {project.id === "odette"
-                        ? "odette-hair-studio"
-                        : project.id === "evergreen"
-                          ? "evergreen-outdoor-living"
-                          : "flowpro-plumbing"}
-                    </h3>
-                    <p>{project.category}</p>
-                    <span className="repo-language">TypeScript</span>
-                  </div>
-                  <Icon name="external" size={14} />
-                </a>
-              ))}
-            </div>
           </div>
         </section>
         <Contact />
       </main>
       <footer className="container footer">
-        <div>
-          <a className="wordmark" href="#home">
-            izel<span>.</span>
-          </a>
-          <p>Izel Bianchina · Software & web developer</p>
-        </div>
-        <p>© {new Date().getFullYear()} Izel Bianchina</p>
+        <a className="footer-name" href="#home">
+          Izel Bianchina<span>.</span>
+        </a>
+        <p>
+          Software & web developer
+          <br />© {new Date().getFullYear()} Izel Bianchina
+        </p>
         <div className="footer-links">
           <a href={profile.github} target="_blank" rel="noreferrer">
             GitHub
           </a>
           {profile.linkedin && <a href={profile.linkedin}>LinkedIn</a>}
           <a href={`mailto:${profile.email}`}>Email</a>
-          <a href="#home">Back to top</a>
+          <a href="#home">Back to top ↑</a>
         </div>
       </footer>
       <CaseStudy project={selected} onClose={() => setSelected(null)} />
